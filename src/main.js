@@ -1,4 +1,5 @@
 import Omi from 'omi'
+import './css/index.less'
 
 class Hello extends Omi.Component {
     constructor(data) {
@@ -16,12 +17,11 @@ class Hello extends Omi.Component {
     }
     render() {
         return `
-			<div>
-				<h1 onclick="handleClick(this, event)">Hello ,{{name}}!</h1>
-			</div>
+          <div>
+            <h1 onclick='handleClick(this, event)'>Hello ,{{name}}!</h1>
+          </div>
         `
-
     }
 }
 
-Omi.render(new Hello({ name : "Omi" }),"#app")
+Omi.render(new Hello({ name : 'Omi' }),'#app')

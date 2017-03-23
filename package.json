@@ -12,7 +12,7 @@
   "keywords": [
     "Omi",
     "omic",
-	"Cube"
+    "Cube"
   ],
   "dependencies": {
     "omi": "^1.0.6"
@@ -45,6 +45,7 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "url-loader": "^0.5.7",
+    "vue-style-loader": "^2.0.4",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
