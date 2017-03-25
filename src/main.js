@@ -1,35 +1,14 @@
-import Omi from 'omi'
-import './css/index.less'
-import './3rd/mdui@v0.1.2/js/mdui.js'
+import Omic from './components/Omic'
+import 'index'
 
-class Hello extends Omi.Component {
+class Hello extends Omic {
   constructor(data) {
     super(data)
   }
   install () {
   }
-  tick () {
-  }
   installed () {
     var inst = new mdui.Fab('#fab')
-    this.refs.open.addEventListener('click', function () {
-      inst.open()
-    })
-    this.refs.close.addEventListener('click', function () {
-      inst.close()
-    })
-    this.refs.toggle.addEventListener('click', function () {
-      inst.toggle()
-    })
-    this.refs.hide.addEventListener('click', function () {
-      inst.hide()
-    })
-    this.refs.show.addEventListener('click', function () {
-      inst.show()
-    })
-    this.refs.getState.addEventListener('click', function () {
-      mdui.alert(inst.getState())
-    })
     var fab = this.refs.fab
     fab.addEventListener('open.mdui.fab', function () {
       console.log('open')
@@ -43,13 +22,6 @@ class Hello extends Omi.Component {
     fab.addEventListener('closed.mdui.fab', function () {
       console.log('closed')
     })
-    console.log(JSON.stringify(this.refs))
-  }
-  uninstall () {
-  }
-  beforeUpdate () {
-  }
-  afterUpdate () {
   }
   style () {
     return `
@@ -61,20 +33,14 @@ class Hello extends Omi.Component {
   handleClick(target, evt){
     mdui.alert(target.innerHTML);
   }
+  handleChange (target) {
+    console.log(target.value);
+  }
   render() {
     return `
       <div>
         <h1 class='' onclick='handleClick(this, event)'>Hello ,{{name}}!</h1>
-        <i class="mdui-icon material-icons">&#xe834;</i>
-        <i class="mdui-icon material-icons mdui-text-color-red">&#xe834;</i>
-        <i class="mdui-icon material-icons mdui-text-color-theme">&#xe834;</i>
         <div class="mdui-container">
-          <button ref="open" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">open</button>
-          <button ref="close" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">close</button>
-          <button ref="toggle" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">toggle</button>
-          <button ref="hide" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">hide</button>
-          <button ref="show" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">show</button>
-          <button ref="getState" class="mdui-btn mdui-color-pink-accent mdui-m-a-1">getState</button>
           <div class="mdui-fab-wrapper" ref="fab" id='fab'>
             <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
               <i class="mdui-icon material-icons">&#xe145</i>
@@ -87,9 +53,14 @@ class Hello extends Omi.Component {
               <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue" onclick='handleClick(this, event)'><i class="mdui-icon material-icons">&#xe913</i></button>
             </div>
           </div>
+          <div>
+            <omic-input data-label='用户名' data-floating='false' data-icon='access_alarm' onchange='handleChange' />
+            <omic-input data-label='密码' data-type='password' data-icon='&#xe897;' data-floating='true' data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='密码至少 6 位，且包含大小写字母' onchange='handleChange' />
+            <omic-input data-label='多行输入' data-icon='email' data-maxlength='100' data-floating='true' data-multiple='true'  data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='至少 6 位，且包含大小写字母' onchange='handleChange' />
+          </div>
         </div>
     `
   }
 }
 
-Omi.render(new Hello({ name : 'Omi' }),'#app')
+Omi.render(new Hello({ name : 'Omi' }),'body')

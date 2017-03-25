@@ -1,0 +1,50 @@
+/**
+ * MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2017 XIAOZHUO.WANG
+ */
+
+/////////////////////////////////////////////////////////
+// 加前缀
+.prefix-in(@action, @args){
+	-webkit-@{action}: @args;
+	-moz-@{action}: @args;
+	-ms-@{action}: @args;
+	-o-@{action}: @args;
+	@{action}: @args;
+}
+// 过渡
+.transition(@args){
+	.prefix-in(transition,@args);
+}
+// 转换
+.transform(@args){
+	.prefix-in(transform,@args);
+}
+// 动画
+.animation(@args){
+	.prefix-in(animation,@args);
+}
+// 辅助动画定义
+.keyframes(@name, @fun) { 
+    @-webkit-keyframes @name {
+        @fun();
+		.-frames(-webkit-);
+    }
+    @-moz-keyframes @name {
+        @fun();
+		.-frames(-moz-);
+    }
+    @-o-keyframes @name {
+        @fun();
+		.-frames(-o-);
+    }
+    @-ms-keyframes @name {
+        @fun();
+		.-frames(-ms-);
+    }
+    @keyframes @name {
+        @fun();
+		.-frames();
+    }
+}
+/////////////////////////////////////////////////////////

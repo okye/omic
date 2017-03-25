@@ -1,0 +1,60 @@
+/**
+ * MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2017 XIAOZHUO.WANG
+ */
+@import 'utils.less';
+
+.FadeInOut(){
+	.keyframes(FadeInOut,{
+		.-frames(@-...){
+			0%{
+				opacity: 1;
+			}
+			50%{
+				opacity: 0.1;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+	});
+}
+.FadeInOut();
+
+.fade-in-out (@args) {
+	.animation(FadeInOut @args)
+}
+
+.fade-in-out {
+	.fade-in-out(10s);
+}
+.twinkle {
+	.fade-in-out(500ms infinite)
+}
+
+.RotateY(){
+	.keyframes(RotateY,{
+		.-frames(@-...){
+			0%{
+				@{-}transform: rotateY(0deg);
+			}
+			50%{
+				@{-}transform: rotateY(180deg);
+			}
+			100%{
+				@{-}transform: rotateY(360deg);
+			}
+		}
+	});
+}
+.RotateY();
+
+.rotate-y (@args) {
+	.animation(RotateY @args)
+}
+.cube {
+	.rotate-y(3000ms infinite)
+}
+.cube-f {
+	.rotate-y(100ms infinite)
+}
