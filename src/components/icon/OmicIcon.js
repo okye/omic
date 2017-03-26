@@ -9,7 +9,6 @@ class OmicIcon extends Omic {
     super(data)
   }
   install () {
-    console.log(Icons[this.data.icon])
     if (Icons[this.data.icon]) {
      this.data.icon = Icons[this.data.icon]
     }

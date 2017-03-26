@@ -1,7 +1,6 @@
-import Omic from './components/Omic'
-import 'index'
+import Omic from 'src/index'
 
-class Hello extends Omic {
+class Hello extends Omic.Omic {
   constructor(data) {
     super(data)
   }
