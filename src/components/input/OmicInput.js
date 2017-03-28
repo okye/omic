@@ -18,7 +18,7 @@ class OmicInput extends Omic {
     super(data)
   }
   install () {
-    super.makeHTML('omic-icon', OmicIcon)
+    super.$makeHTML('omic-icon', OmicIcon)
   }
   installed () {
     // console.log(this.refs['OmicInput-input-'+this.data.key])
