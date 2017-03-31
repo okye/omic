@@ -52,12 +52,22 @@ class Hello extends Omic.Omic {
               <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue" onclick='handleClick(this, event)'><i class="mdui-icon material-icons">&#xe913</i></button>
             </div>
           </div>
-          <div>
-            <omic-input data-label='用户名' data-floating='false' data-icon='access_alarm' onchange='handleChange' />
-            <omic-input data-label='密码' data-type='password' data-icon='&#xe897;' data-floating='true' data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='密码至少 6 位，且包含大小写字母' onchange='handleChange' />
-            <omic-input data-label='多行输入' data-icon='email' data-maxlength='100' data-floating='true' data-multiple='true'  data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='至少 6 位，且包含大小写字母' onchange='handleChange' />
-          </div>
         </div>
+        <div>
+          <omic-input data-label='用户名' data-floating='false' data-icon='access_alarm' onchange='handleChange' />
+          <omic-input data-label='密码' data-type='password' data-icon='&#xe897;' data-floating='true' data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='密码至少 6 位，且包含大小写字母' onchange='handleChange' />
+          <omic-input data-label='多行输入' data-icon='email' data-maxlength='100' data-floating='true' data-multiple='true'  data-pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" data-required='true' data-msg='至少 6 位，且包含大小写字母' onchange='handleChange' />
+        </div>
+        <omic-container>
+          <omic-row>
+            <omic-col>111111111111
+            <omic-col>222222222222
+            <omic-col>333333333333
+            <omic-col>444444444444
+            <omic-col>555555555555
+          <omic-row>
+        <omic-container>
+      </div>
     `
   }
 }

@@ -3,6 +3,7 @@ import artTemplate from './3rd/artTemplate@3.1.0/template-debug.js'
 
 import Components from './components'
 import Omic from './components/Omic'
+import Omicx from './components/Omicx'
 import Utils from './utils/Utils'
 
 Omi.template = function (tpl, data) {
@@ -24,6 +25,7 @@ if (typeof window !== 'undefined' && window.Omi) {
 
 export default {
   Omic,
+  Omicx,
   Utils,
   install
 }
