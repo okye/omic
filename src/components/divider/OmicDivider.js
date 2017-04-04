@@ -12,6 +12,6 @@ export default class OmicDivider extends Omic {
     super(data)
   }
   render() {
-    return `<div class='mdui-divider{{if "true" === inset}}-inset{{/if}}{{if theme}}-{{theme}}{{/if}}'></div>`
+    return `<div class='mdui-divider{{if "true" === inset}}-inset{{/if}}{{if theme}}-{{theme}}{{/if}}' style='{{style}}'></div>`
   }
 }

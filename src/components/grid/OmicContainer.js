@@ -10,6 +10,6 @@ export default class OmicContainer extends Omicx {
     super(data)
   }
   render() {
-    return `<div ref='OmicContainer-div-{{key}}' class='mdui-container{{if "true"===fluid}}-fluid{{/if}} {{clazz}}'>`
+    return `<div ref='OmicContainer-div-{{key}}' class='mdui-container{{if "true"===fluid}}-fluid{{/if}} {{clazz}}' style='{{style}}'>`
   }
 }

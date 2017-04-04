@@ -21,7 +21,7 @@ export default class Omic extends Omi.Component {
       disabled: ''
     }, data);
     super(data)
-    OmicUitls.injectEvent(this) //data中事件方法注入到组件
+    OmicUitls.copyEvent(this) //data中事件方法copy到组件
   }
   install() {} //初始化安装，传入数据处理
   installed() {} //安装完成，HTML插入页面后执行
@@ -32,6 +32,9 @@ export default class Omic extends Omi.Component {
   beforeRender() {} //渲染内容前调用
   render() {} //渲染内容
   $makeHTML(name, ctor) {
-    Omi.makeHTML(name, ctor) // 制作成可以声明式的标签
+    Omi.makeHTML(name, ctor) //制作成可以声明式的标签
+  }
+  $get(omiId) {
+    return Omi.get(omiId) //通过组件声明的omi-id获取到对应的实例
   }
 }

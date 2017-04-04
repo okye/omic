@@ -1,17 +1,21 @@
 import Omic from '../Omic'
 
 export default {
-  injectEvent(target) {
+  copyEvent(target) {
+    // data中事件方法copy到组件
     if (target && target instanceof Omic) {
       let data = target.data
       for (let key in data) {
-        if (key.indexOf('on') == 0 && data[key] instanceof Function) {
+        if (data.hasOwnProperty(key) &&
+          key.indexOf('on') === 0 &&
+          data[key] instanceof Function) {
           target[key] = data[key]
         }
       }
     }
   },
   injectEndTag(target) {
+    // 插入</div>
     if (!target.data.$__tag_closed_) {
       let sbilings = target.parent.children
       let len = sbilings.length

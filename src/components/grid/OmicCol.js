@@ -9,6 +9,9 @@ export default class OmicCol extends Omicx {
     super(data)
   }
   render() {
-    return `<div ref='OmicCol-div-{{key}}' class='mdui-col-xs-4 {{clazz}}'>`
+    return `<div ref='OmicCol-div-{{key}}'
+      class='mdui-col {{clazz}}'
+      style='{{style}}'
+    >`
   }
 }

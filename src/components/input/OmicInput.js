@@ -33,6 +33,17 @@ export default class OmicInput extends Omic {
       }
     `
   }
+  handleChange(target, event) {
+    this.data.value = target.value
+    if (this.onchange) {
+      this.onchange(target, event, this.data)
+    }
+  }
+  handleBlur(target, event) {
+    if (this.onblur) {
+      this.onblur(target, event, this.data)
+    }
+  }
   render() {
     return `<div class='mdui-textfield {{if 'true'===floating}}mdui-textfield-floating-label{{/if}}'>
       {{if icon}} <omic-icon data-icon='{{icon}}' data-clazz='icon-middle'/> {{/if}}
@@ -40,19 +51,16 @@ export default class OmicInput extends Omic {
       {{if 'true'===multiple}}
         <textarea ref='OmicInput-input-{{key}}' id='{{id}}' name='{{name}}' placeholder='{{placeholder}}'
           class='mdui-textfield-input {{clazz}}' style='{{style}}'
-          {{if onchange}} onchange='onchange(this,event)' {{/if}}
-          {{if onblur}} onblur='onblur(this,event)' {{/if}}
+          onchange='handleChange(this, event)' onblur='handleBlur(this,event)'
           {{if maxlength&&maxlength>0}} maxlength='{{maxlength}}' {{/if}}
           {{if 'true'===disabled}} disabled {{/if}}
           {{if 'true'===required}} required {{/if}}
-          data-value='{{value}}'
+          value='{{value}}'
         ></textarea>
       {{else}}
         <input ref='OmicInput-input-{{key}}' id='{{id}}' name='{{name}}' value='{{value}}'
-          type='{{type}}' placeholder='{{placeholder}}'
-          class='mdui-textfield-input {{clazz}}' style='{{style}}'
-          {{if onchange}} onchange='onchange(this,event)' {{/if}}
-          {{if onblur}} onblur='onblur(this,event)' {{/if}}
+          type='{{type}}' placeholder='{{placeholder}}' class='mdui-textfield-input {{clazz}}'
+          style='{{style}}' onchange='handleChange(this, event)' onblur='handleBlur(this,event)'
           {{if maxlength&&maxlength>0}} maxlength='{{maxlength}}' {{/if}}
           {{if 'true'===disabled}} disabled {{/if}}
           {{if 'true'===required}} required {{/if}}
